@@ -1,7 +1,13 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Commerce Webservices"
+        "title": "Commerce Webservices",
+        "description": "These services manage all of the common commerce functionality, and also include customizations from installed AddOns. The implementing extension is called commercewebservices.",
+        "license": {
+            "name": "Use of this file is subject to the terms of your agreement with SAP SE or its affiliates respecting the use of the SAP product for which this file relates.",
+            "url": ""
+        },
+        "version": "1.0.0"
     },
     "externalDocs": {
         "description": "SAP Commerce Cloud",
