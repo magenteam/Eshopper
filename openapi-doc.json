@@ -1,5 +1,5 @@
 {
-    "openapi": "1.6.9",    
+    "openapi": "3.0.0",    
     "externalDocs": {
         "description": "SAP Commerce Cloud",
         "url": "https://www.sap.com"
