@@ -7383,7 +7383,8 @@
                         ]
                     }
                 ]
-            },
+            }
+        },
         "/{baseSiteId}/products/suggestions": {
             "get": {
                 "tags": [
@@ -8261,7 +8262,8 @@
                         ]
                     }
                 ]
-            },
+            }
+        },
         "/{baseSiteId}/products/{productCode}/stock/{storeName}": {
             "get": {
                 "tags": [
@@ -8986,7 +8988,8 @@
                         ]
                     }
                 ]
-            },
+            }
+        },
         "/{baseSiteId}/stores/country/{countryIso}": {
             "get": {
                 "tags": [
@@ -21146,7 +21149,8 @@
                         ]
                     }
                 ]
-            },
+            }
+        },
         "/{baseSiteId}/users/{userId}/orders/{code}": {
             "get": {
                 "tags": [
