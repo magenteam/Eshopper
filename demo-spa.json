@@ -1,5 +1,5 @@
 {
-    "openapi": "3.0.1",
+    "openapi": "3.0.0",
     "info": {
         "title": "Commerce Webservices",
         "description": "These services manage all of the common commerce functionality, and also include customizations from installed AddOns. The implementing extension is called commercewebservices.",
