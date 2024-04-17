@@ -9209,7 +9209,7 @@
                   ]
                }
             ]
-         },
+         }
       },
       "/{baseSiteId}/products/suggestions":{
          "get":{
