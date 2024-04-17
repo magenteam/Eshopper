@@ -44737,18 +44737,5 @@
             }
          }
       }
-   },   
-  "security": [
-    {
-      "basicAuth": []
-    },
-    {
-      "bearerAuth": []
-    }
-  ],
-  "servers": [
-    {
-      "url": "https://api.stripe.com/"
-    }
-  ]
+   }
 }
