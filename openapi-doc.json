@@ -44737,21 +44737,18 @@
             }
          }
       }
-   },
-   "x-sap-api-type":"REST",
-   "x-sap-shortText":"Enables you to manage all of the common commerce functionality.",
-   "x-sap-stateInfo":{
-      "state":"Active"
-   },
-   "x-servers":[
-      {
-         "templates":{
-            "url":{
-               "description":"SAP Commerce Cloud server URL where the application is deployed."
-            }
-         },
-         "description":"Commerce Webservices v2 REST API endpoint",
-         "url":"https://{url}/occ/v2"
-      }
-   ]
+   },   
+  "security": [
+    {
+      "basicAuth": []
+    },
+    {
+      "bearerAuth": []
+    }
+  ],
+  "servers": [
+    {
+      "url": "https://api.stripe.com/"
+    }
+  ]
 }
