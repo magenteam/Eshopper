@@ -37,8 +37,7 @@
             "description": "PunchOut"
         }
     ],
-    "paths": {
-        
+    "paths": {        
         "/basesites": {
             "get": {
                 "tags": [
