@@ -19,18 +19,6 @@
             "description": "Generated server url"
         }
     ],
-    "security": [
-        {
-            "oauth2_Password": [
-                "basic"
-            ]
-        },
-        {
-            "oauth2_client_credentials": [
-                "extended"
-            ]
-        }
-    ],
     "tags": [
         {
             "name": "PunchOut",
