@@ -9,6 +9,34 @@
         },
         "version": "2.2.1"
     },
+    "externalDocs": {
+        "description": "SAP Commerce Cloud",
+        "url": "https://www.sap.com"
+    },
+    "servers": [
+        {
+            "url": "https://spartacus-demo.eastus.cloudapp.azure.com:8443/occ/v2",
+            "description": "Generated server url"
+        }
+    ],
+    "security": [
+        {
+            "oauth2_Password": [
+                "basic"
+            ]
+        },
+        {
+            "oauth2_client_credentials": [
+                "extended"
+            ]
+        }
+    ],
+    "tags": [
+        {
+            "name": "PunchOut",
+            "description": "PunchOut"
+        }
+    ],
     "paths": {
         "/basesites": {
             "get": {
