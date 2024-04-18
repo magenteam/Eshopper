@@ -12564,20 +12564,6 @@
           }
         ]
       }
-        },
-        "security": [
-          {
-            "oauth2_Password": [
-              "basic"
-            ]
-          },
-          {
-            "oauth2_client_credentials": [
-              "extended"
-            ]
-          }
-        ]
-      }
     },
     "/{baseSiteId}/stores/country/{countryIso}": {
       "get": {
