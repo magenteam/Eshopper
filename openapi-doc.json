@@ -148,6 +148,957 @@
           }
         ]
       }
+    },
+    "/{baseSiteId}/basestores/{baseStoreUid}": {
+      "get": {
+        "tags": [
+          "Base Stores"
+        ],
+        "summary": "Retrieves a base store.",
+        "description": "Retrieves the details of the base store.",
+        "operationId": "getBaseStore",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "baseStoreUid",
+            "in": "path",
+            "description": "Base store identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseStore"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseStore"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/cardtypes": {
+      "get": {
+        "tags": [
+          "Miscs"
+        ],
+        "summary": "Retrieves a list of supported payment card types.",
+        "description": "Retrieves the payment card types defined for the base store.",
+        "operationId": "getCardTypes",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/CardTypeList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CardTypeList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/catalogs": {
+      "get": {
+        "tags": [
+          "Catalogs"
+        ],
+        "summary": "Retrieves a list of catalogs.",
+        "operationId": "getCatalogs",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/CatalogList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CatalogList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/catalogs/{catalogId}": {
+      "get": {
+        "tags": [
+          "Catalogs"
+        ],
+        "summary": "Retrieves a catalog.",
+        "description": "Retrieves information about the catalog using catalog identifier.",
+        "operationId": "getCatalog",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "catalogId",
+            "in": "path",
+            "description": "Catalog identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Catalog"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Catalog"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/catalogs/{catalogId}/{catalogVersionId}": {
+      "get": {
+        "tags": [
+          "Catalogs"
+        ],
+        "summary": "Retrieves information about the catalog version.",
+        "description": "Retrieves information about the catalog version using catalog identifier and catalog version identifier.",
+        "operationId": "getCatalogVersion",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "catalogId",
+            "in": "path",
+            "description": "Catalog identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "catalogVersionId",
+            "in": "path",
+            "description": "Catalog version identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/CatalogVersion"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CatalogVersion"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/catalogs/{catalogId}/{catalogVersionId}/categories/{categoryId}": {
+      "get": {
+        "tags": [
+          "Catalogs"
+        ],
+        "summary": "Retrieves information about the category.",
+        "description": "Retrieves information about the category that exists in a catalog version available.",
+        "operationId": "getCategories",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "catalogId",
+            "in": "path",
+            "description": "Catalog identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "catalogVersionId",
+            "in": "path",
+            "description": "Catalog version identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "categoryId",
+            "in": "path",
+            "description": "Category identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/CategoryHierarchy"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CategoryHierarchy"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/categories/{categoryId}/products": {
+      "get": {
+        "tags": [
+          "B2B Categories"
+        ],
+        "summary": "Retrieves a list of products for a category.",
+        "description": "Retrieves a list of products and related product search data, such as available facets, available sorting, and spelling suggestions, for a category. To enable spelling suggestions, you need to have indexed properties configured to be used for spell checking.",
+        "operationId": "getProductsByCategory",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "categoryId",
+            "in": "path",
+            "description": "Category identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "currentPage",
+            "in": "query",
+            "description": "Current result page. Default value is 0.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of results returned per page.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 20
+            }
+          },
+          {
+            "name": "query",
+            "in": "query",
+            "description": "Formatted query string. It contains query criteria like free text search, facet. The format is <freeTextSearch>:<sort>:<facetKey1>:<facetValue1>:...:<facetKeyN>:<facetValueN>.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sorting method applied to the return results.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductSearchPage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductSearchPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
     }
     },
   "components": {
