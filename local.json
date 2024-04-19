@@ -15,7 +15,7 @@
   },
   "servers": [
     {
-      "url": "https://localhost:9002/occ/v2",
+      "url": "https://spartacus-demo.eastus.cloudapp.azure.com:8443/occ/v2",
       "description": "Generated server url"
     }
   ],
