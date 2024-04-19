@@ -1872,7 +1872,6 @@
           }
         ]
       }
-    }
     },
     "/{baseSiteId}/cities/{cityId}/districts": {
       "get": {
@@ -1992,6 +1991,7 @@
           }
         ]
       }
+    }
     },
     "/{baseSiteId}/costcenters": {
       "get": {
