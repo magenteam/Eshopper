@@ -18388,6 +18388,3630 @@
         ]
       }
     },
+    "/{baseSiteId}/users/{userId}/carts/{cartId}/entries/{entryNumber}/ccpconfigurator/configurationOverview": {
+      "get": {
+        "tags": [
+          "Product Configurator CCP Saved Cart Integration"
+        ],
+        "summary": "Gets a product configuration overview of an saved cart entry",
+        "description": "Gets a configuration overview, a simplified and condensed read-only view on the product configuration of an saved cart entry. Only the selected attribute values are displayed here.",
+        "operationId": "getConfigurationOverviewForSavedCart",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cartId",
+            "in": "path",
+            "description": "Cart identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "entryNumber",
+            "in": "path",
+            "description": "Each entry in a cart has an entry number. Cart entries are numbered in ascending order, starting with zero.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/CCPConfigurationOverview"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CCPConfigurationOverview"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/carts/{cartId}/entries/{entryNumber}/configurator/textfield": {
+      "get": {
+        "tags": [
+          "Product Configurator Textfield Template"
+        ],
+        "summary": "Get configuration of cart entry.",
+        "description": "Get the textfield configuration for a cart entry.",
+        "operationId": "getConfigurationInEntry_1",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cartId",
+            "in": "path",
+            "description": "Cart identifier: cart code for logged-in user, cart GUID for anonymous user, or 'current' for the last modified cart.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "entryNumber",
+            "in": "path",
+            "description": "Cart entry number.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConfigurationInfoList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConfigurationInfoList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Product Configurator Textfield Template"
+        ],
+        "summary": "Update configuration of cart entry.",
+        "description": "Update the textfield configuration for a cart entry.",
+        "operationId": "getConfigurationInEntry",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cartId",
+            "in": "path",
+            "description": "Cart identifier: cart code for logged-in user, cart GUID for anonymous user, or 'current' for the last modified cart.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "entryNumber",
+            "in": "path",
+            "description": "Cart entry number.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConfigurationInfoList"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/CartModification"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CartModification"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/carts/{cartId}/entrygroups/{entryGroupNumber}": {
+      "post": {
+        "tags": [
+          "Cart Entry Groups"
+        ],
+        "summary": "Assigns a product to a cart entry group.",
+        "operationId": "addToCartEntryGroup",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cartId",
+            "in": "path",
+            "description": "Cart identifier: cart code for logged-in user, cart GUID for anonymous user, or 'current' for the last modified cart.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "entryGroupNumber",
+            "in": "path",
+            "description": "Each entry group in a cart has a specific entry group number. Entry group numbers are integers starting at one. They are defined in ascending order.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrderEntry"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/CartModification"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CartModification"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Cart Entry Groups"
+        ],
+        "summary": "Deletes an entry group.",
+        "description": "Deletes an entry group from the associated cart.",
+        "operationId": "removeCartEntryGroup",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cartId",
+            "in": "path",
+            "description": "Cart identifier: cart code for logged-in user, cart GUID for anonymous user, or 'current' for the last modified cart.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "entryGroupNumber",
+            "in": "path",
+            "description": "Each entry group in a cart has a specific entry group number. Entry group numbers are integers starting at one. They are defined in ascending order.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/carts/{cartId}/entrygroups/{entryGroupNumber}/allowedProductsSearch": {
+      "get": {
+        "tags": [
+          "Bundles"
+        ],
+        "summary": "Retrieves products for an entry group.",
+        "description": "Retrieves a list of products and related product search data, such as available facets, available sorting, and spelling suggestions. To enable spelling suggestions, you need to have indexed properties configured to be used for spell checking. Any of the products returned can be added to the entry group, also known as the bundle.",
+        "operationId": "getAvailableProducts",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cartId",
+            "in": "path",
+            "description": "Cart identifier: cart code for logged-in user, cart GUID for anonymous user, or 'current' for the last modified cart.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "currentPage",
+            "in": "query",
+            "description": "Current result page. Default value is 0.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "entryGroupNumber",
+            "in": "path",
+            "description": "Each entry group in a cart has a specific entry group number. Entry group numbers are integers starting at one. They are defined in ascending order.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC, DEFAULT, FULL.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of results returned per page.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 20
+            }
+          },
+          {
+            "name": "query",
+            "in": "query",
+            "description": "Formatted query string. It contains query criteria like free text search, facet. The format is <freeTextSearch>:<sort>:<facetKey1>:<facetValue1>:...:<facetKeyN>:<facetValueN>.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sorting method applied to the return results.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductSearchPage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductSearchPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/carts/{cartId}/flagForDeletion": {
+      "patch": {
+        "tags": [
+          "Save Cart"
+        ],
+        "summary": "Updates the cart by flagging it for deletion.",
+        "description": "Updates the cart without corresponding saved cart attributes by flagging it for deletion. The cart is not deleted from the database, but without the saved cart properties, the cart will be handled by the cart removal job just like any other cart.",
+        "operationId": "doUpdateFlagForDeletion",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cartId",
+            "in": "path",
+            "description": "Cart identifier: cart code for logged-in user, cart GUID for anonymous user, or 'current' for the last modified cart.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/SaveCartResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SaveCartResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/carts/{cartId}/payment/sop/request": {
+      "get": {
+        "tags": [
+          "Carts"
+        ],
+        "summary": "Retrieves the information required to create a subscription.",
+        "description": "Retrieves the information required to create a subscription that contacts the payment provider directly. This information contains the URL of the payment provider and a list of required parameters.",
+        "operationId": "getSopPaymentRequestDetails",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cartId",
+            "in": "path",
+            "description": "Cart identifier: cart code for logged in user, cart guid for anonymous user, 'current' for the last modified cart",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "extendedMerchantCallback",
+            "in": "query",
+            "description": "Define which url should be returned",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "responseUrl",
+            "in": "query",
+            "description": "The URL that the payment provider uses to return payment information. Possible values for responseUrl include the following: “orderPage_cancelResponseURL”, “orderPage_declineResponseURL”, and “orderPage_receiptResponseURL”.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentRequest"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentRequest"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/carts/{cartId}/payment/sop/response": {
+      "get": {
+        "tags": [
+          "Carts"
+        ],
+        "summary": "Retrieves the create subscription response from the payment provider.",
+        "description": "Retrieves the response from the payment provider after creating the SOP payment subscription. If the payment subscription was created successfully, the payment details are returned. If no response from the payment provider, a \"202 Accepted\" status is returned. Otherwise, an error response is returned. \n\nNote: The execution of the “Try it out” button always returns an error because the extended carts controller handles parameters differently depending on which payment provider is used.",
+        "operationId": "getSopPaymentResponse",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cartId",
+            "in": "path",
+            "description": "Cart identifier: cart code for logged-in user, cart GUID for anonymous user, or 'current' for the last modified cart.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Carts"
+        ],
+        "summary": "Creates the SOP payment details.",
+        "description": "If the SOP payment subscription was successfully created, the payment details are defined and returned.\n\nNote: The execution of the “Try it out” button always returns an error because the extended carts controller handles parameters differently, depending on which payment provider is used.",
+        "operationId": "doHandleSopPaymentResponse",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cartId",
+            "in": "path",
+            "description": "Cart identifier: cart code for logged-in user, cart GUID for anonymous user, or 'current' for the last modified cart.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Carts"
+        ],
+        "summary": "Deletes the response from the payment provider.",
+        "description": "Deletes the payment provider response for the SOP payment subscription.",
+        "operationId": "removeSopPaymentResponse",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cartId",
+            "in": "path",
+            "description": "Cart identifier: cart code for logged-in user, cart GUID for anonymous user, or 'current' for the last modified cart.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/carts/{cartId}/paymentdetails": {
+      "put": {
+        "tags": [
+          "Cart Payments"
+        ],
+        "summary": "Sets credit card payment details for the cart.",
+        "description": "Sets credit card payment details for the specified cart.",
+        "operationId": "replaceCartPaymentDetails",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cartId",
+            "in": "path",
+            "description": "Cart identifier: cart code for logged-in user, cart GUID for anonymous user, or 'current' for the last modified cart.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "paymentDetailsId",
+            "in": "query",
+            "description": "Payment details identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Cart Payments"
+        ],
+        "summary": "Creates details of a new credit card payment for the cart.",
+        "description": "Creates the details of a new credit card payment and assigns it to the cart.",
+        "operationId": "createCartPaymentDetails",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cartId",
+            "in": "path",
+            "description": "Cart identifier: cart code for logged-in user, cart GUID for anonymous user, or 'current' for the last modified cart.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/PaymentDetails"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PaymentDetails"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/carts/{cartId}/paymenttype": {
+      "put": {
+        "tags": [
+          "B2B Carts"
+        ],
+        "summary": "Updates the payment type for the cart.",
+        "description": "Updates the payment type for the cart during the checkout process. If the purchaseOrderNumber is not null, it will also be updated for the cart.",
+        "operationId": "replaceOrgCartPaymentType",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cartId",
+            "in": "path",
+            "description": "Cart identifier: cart code for logged-in user, cart GUID for anonymous user, or 'current' for the last modified cart.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "paymentType",
+            "in": "query",
+            "description": "Payment type choice. Examples:card,account",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "purchaseOrderNumber",
+            "in": "query",
+            "description": "Purchase order number to assign to the cart during the checkout process.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cart"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cart"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/carts/{cartId}/promotions": {
+      "get": {
+        "tags": [
+          "Cart Promotions"
+        ],
+        "summary": "Retrieves the cart promotions.",
+        "description": "Retrieves information about the promotions applied to the cart. Requests pertaining to promotions have been developed for the previous version of promotions and vouchers, and as a result, some of them are currently not compatible with the new promotions engine.",
+        "operationId": "getCartPromotions",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cartId",
+            "in": "path",
+            "description": "Cart identifier: cart code for logged-in user, cart GUID for anonymous user, or 'current' for the last modified cart.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/PromotionResultList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PromotionResultList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Cart Promotions"
+        ],
+        "summary": "Assigns a promotion to the cart.",
+        "description": "Applies a promotion to the cart using the promotion identifier. Requests pertaining to promotions have been developed for the previous version of promotions and vouchers, and as a result, some of them are currently not compatible with the new promotions engine.",
+        "operationId": "doApplyCartPromotion",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cartId",
+            "in": "path",
+            "description": "Cart identifier: cart code for logged-in user, cart GUID for anonymous user, or 'current' for the last modified cart.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "promotionId",
+            "in": "query",
+            "description": "Promotion identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "percentage_discount_on_camera"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/carts/{cartId}/promotions/{promotionId}": {
+      "get": {
+        "tags": [
+          "Cart Promotions"
+        ],
+        "summary": "Retrieves information about the promotion.",
+        "description": "Retrieves information about the promotion using the promotion identifier associated with the cart. Requests pertaining to promotions have been developed for the previous version of promotions and vouchers, and as a result, some of them are currently not compatible with the new promotions engine.",
+        "operationId": "getCartPromotion",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cartId",
+            "in": "path",
+            "description": "Cart identifier: cart code for logged-in user, cart GUID for anonymous user, or 'current' for the last modified cart.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "promotionId",
+            "in": "path",
+            "description": "Promotion identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "percentage_discount_on_camera"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/PromotionResultList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PromotionResultList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Cart Promotions"
+        ],
+        "summary": "Deletes the promotion.",
+        "description": "Deletes the promotion of the order using the promotion identifier defined for the cart. Requests pertaining to promotions have been developed for the previous version of promotions and vouchers, and as a result, some of them are currently not compatible with the new promotions engine.",
+        "operationId": "removeCartPromotion",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cartId",
+            "in": "path",
+            "description": "Cart identifier: cart code for logged-in user, cart GUID for anonymous user, or 'current' for the last modified cart.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "promotionId",
+            "in": "path",
+            "description": "Promotion identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "percentage_discount_on_camera"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/carts/{cartId}/requestedretrievaldate": {
+      "put": {
+        "tags": [
+          "Carts"
+        ],
+        "summary": "Sets the requested retrieval date for a cart.",
+        "description": "Sets the requested retrieval date with a given date for the cart.",
+        "operationId": "setCartRequestedRetrievalDate",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cartId",
+            "in": "path",
+            "description": "Cart identifier: cart code for logged-in user, cart GUID for anonymous user, or 'current' for the last modified cart.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "requestedRetrievalAt",
+            "in": "query",
+            "description": "Customer requested date for order retrieval",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "2023-03-29"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/carts/{cartId}/restoresavedcart": {
+      "patch": {
+        "tags": [
+          "Save Cart"
+        ],
+        "summary": "Restores a saved cart.",
+        "description": "Restores the data of a saved cart.",
+        "operationId": "doUpdateSavedCart",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cartId",
+            "in": "path",
+            "description": "Cart identifier: cart code for logged-in user, cart GUID for anonymous user, or 'current' for the last modified cart.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/SaveCartResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SaveCartResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/carts/{cartId}/save": {
+      "patch": {
+        "tags": [
+          "Save Cart"
+        ],
+        "summary": "Updates a cart to save it.",
+        "description": "Updates a cart to explicitly save it. Adds the name and description of the saved cart if specified.",
+        "operationId": "doSaveCart",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cartId",
+            "in": "path",
+            "description": "Cart identifier: cart code for logged-in user, cart GUID for anonymous user, or 'current' for the last modified cart.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "saveCartDescription",
+            "in": "query",
+            "description": "Description of the saved cart.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "saveCartName",
+            "in": "query",
+            "description": "Name of the saved cart.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/SaveCartResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SaveCartResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/carts/{cartId}/savedcart": {
+      "get": {
+        "tags": [
+          "Save Cart"
+        ],
+        "summary": "Retrieves the saved cart.",
+        "description": "Retrieves the saved cart for an authenticated customer using the cart identifier.  To get entryGroup information, set fields value as follows: fields=savedCartData(entryGroups(BASIC)), fields=savedCartData(entryGroups(DEFAULT)), or fields=savedCartData(entryGroups(FULL)).",
+        "operationId": "getSavedCart",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cartId",
+            "in": "path",
+            "description": "Cart identifier: cart code for logged-in user, cart GUID for anonymous user, or 'current' for the last modified cart.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/SaveCartResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SaveCartResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/carts/{cartId}/validate": {
+      "post": {
+        "tags": [
+          "Carts"
+        ],
+        "summary": "Validates the cart.",
+        "description": "Validates the cart and returns the cart data during checkout and quotation.",
+        "operationId": "validateCart",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cartId",
+            "in": "path",
+            "description": "Cart identifier: cart code for logged-in user, cart GUID for anonymous user, or 'current' for the last modified cart.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/CartModificationList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CartModificationList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/carts/{cartId}/vouchers": {
+      "get": {
+        "tags": [
+          "Cart Promotions"
+        ],
+        "summary": "Retrieves a list of vouchers.",
+        "description": "Retrieves a list of vouchers associated with the cart.",
+        "operationId": "getCartVouchers",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cartId",
+            "in": "path",
+            "description": "Cart identifier: cart code for logged-in user, cart GUID for anonymous user, or 'current' for the last modified cart.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/VoucherList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VoucherList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Cart Promotions"
+        ],
+        "summary": "Assigns a voucher to the cart.",
+        "description": "Assigns a voucher to the cart using the voucher identifier.",
+        "operationId": "doApplyCartVoucher",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cartId",
+            "in": "path",
+            "description": "Cart identifier: cart code for logged-in user, cart GUID for anonymous user, or 'current' for the last modified cart.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "voucherId",
+            "in": "query",
+            "description": "Voucher identifier (code)",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "VCHR-H8BC-Y3D5-34AL"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/carts/{cartId}/vouchers/{voucherId}": {
+      "delete": {
+        "tags": [
+          "Cart Promotions"
+        ],
+        "summary": "Deletes a voucher defined for the current cart.",
+        "description": "Deletes a voucher associated with the current cart.",
+        "operationId": "removeCartVoucher",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cartId",
+            "in": "path",
+            "description": "Cart identifier: cart code for logged-in user, cart GUID for anonymous user, or 'current' for the last modified cart.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "voucherId",
+            "in": "path",
+            "description": "Voucher identifier (code)",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "VCHR-H8BC-Y3D5-34AL"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
   "components": {
     "schemas": {
       "AccountSummary": {
