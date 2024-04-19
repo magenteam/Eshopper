@@ -1099,6 +1099,7 @@
           }
         ]
       }
+    }
     },
     "/{baseSiteId}/ccpconfigurator/{configId}": {
       "get": {
@@ -1236,6 +1237,142 @@
             ]
           }
         ]
+      },
+      "patch": {
+        "tags": [
+          "Product Configurator CCP"
+        ],
+        "summary": "Updates a product configuration",
+        "description": "Updates a product configuration. It's possible to send only the changed parts of the configuration, for example a single value change for an attribute. These changes must include their entire path through the configuration (the group they belong to and its parent groups)",
+        "operationId": "updateProductConfiguration",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "configId",
+            "in": "path",
+            "description": "Configuration identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "expMode",
+            "in": "query",
+            "description": "If this parameter is provided and its value is true, the system tries to execute the request in expert mode (only possible if the current user belongs to group 'sapproductconfigexpmodegroup'",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CCPConfiguration"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/CCPConfiguration"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CCPConfiguration"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
       }
     },
     "/{baseSiteId}/ccpconfigurator/{configId}/configurationOverview": {
@@ -1266,6 +1403,133 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/CCPConfigurationOverview"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CCPConfigurationOverview"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "Product Configurator CCP"
+        ],
+        "summary": "Updates the product configuration overview",
+        "description": "Updates the configuration overview, a simplified and condensed read-only view on the product configuration. Only the selected attribute values are displayed here.",
+        "operationId": "updateProductConfigurationOverview",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "configId",
+            "in": "path",
+            "description": "Configuration identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CCPConfigurationOverview"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "200": {
             "description": "OK",
@@ -1969,7 +2233,6 @@
           }
         ]
       }
-    }
     },
     "/{baseSiteId}/costcenters/{costCenterCode}": {
       "get": {
@@ -35421,7 +35684,7 @@
           }
         ]
       }
-  },
+    },
   "components": {
     "schemas": {
       "AccountSummary": {
@@ -37152,6 +37415,61 @@
         },
         "description": "Requests body parameter that contains attributes for creating the order entry, such as quantity, product code, and configuration identifier."
       },
+      "CMSPageList": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CMSPage"
+            }
+          }
+        }
+      },
+      "CMSPage": {
+        "type": "object",
+        "properties": {
+          "uid": {
+            "type": "string"
+          },
+          "uuid": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "template": {
+            "type": "string"
+          },
+          "typeCode": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "robotTag": {
+            "type": "string"
+          },
+          "defaultPage": {
+            "type": "boolean"
+          },
+          "contentSlots": {
+            "$ref": "#/components/schemas/ContentSlotList"
+          },
+          "catalogVersionUuid": {
+            "type": "string"
+          },
+          "otherProperties": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object"
+            }
+          }
+        }
+      },
       "CXML": {
         "type": "object",
         "properties": {
@@ -38026,6 +38344,49 @@
           }
         },
         "description": "Representation of a Consignment Entry"
+      },
+      "ContentSlotList": {
+        "type": "object",
+        "properties": {
+          "contentSlot": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ContentSlot"
+            }
+          }
+        }
+      },
+      "ContentSlot": {
+        "type": "object",
+        "properties": {
+          "slotId": {
+            "type": "string"
+          },
+          "slotUuid": {
+            "type": "string"
+          },
+          "position": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "slotShared": {
+            "type": "boolean"
+          },
+          "slotStatus": {
+            "type": "string"
+          },
+          "components": {
+            "$ref": "#/components/schemas/ComponentList"
+          },
+          "otherProperties": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object"
+            }
+          }
+        }
       },
       "Country": {
         "type": "object",
