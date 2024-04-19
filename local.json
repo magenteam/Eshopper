@@ -1871,7 +1871,7 @@
             ]
           }
         ]
-      }    
+      }
     },
     "/{baseSiteId}/cities/{cityId}/districts": {
       "get": {
@@ -2153,7 +2153,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/"
+                  "$ref": "#/components/schemas/B2BCostCenter"
                 }
               }
             }
@@ -2231,7 +2231,7 @@
             ]
           }
         ]
-      }     
+      }}
     },
     "/{baseSiteId}/costcenters/{costCenterCode}": {
       "get": {
@@ -2278,12 +2278,12 @@
             "content": {
               "application/xml": {
                 "schema": {
-                  "$ref": "#/components/schemas/"
+                  "$ref": "#/components/schemas/B2BCostCenter"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/"
+                  "$ref": "#/components/schemas/B2BCostCenter"
                 }
               }
             }
@@ -2404,7 +2404,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/"
+                "$ref": "#/components/schemas/B2BCostCenter"
               }
             }
           },
@@ -2416,7 +2416,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/"
+                  "$ref": "#/components/schemas/B2BCostCenter"
                 }
               }
             }
@@ -2495,7 +2495,6 @@
           }
         ]
       }
-    }
     },
     "/{baseSiteId}/costcenters/{costCenterCode}/budgets": {
       "get": {
@@ -2988,7 +2987,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/List"
+                  "$ref": "#/components/schemas/B2BCostCenterList"
                 }
               }
             }
