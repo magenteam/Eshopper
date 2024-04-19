@@ -1609,6 +1609,7 @@
           }
         ]
       }
+    }
     },
     "/{baseSiteId}/cities/{cityId}/districts": {
       "get": {
