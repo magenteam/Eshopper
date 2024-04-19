@@ -39364,61 +39364,6 @@
         },
         "description": "Requests body parameter that contains attributes for creating the order entry, such as quantity, product code, and configuration identifier."
       },
-      "CMSPageList": {
-        "type": "object",
-        "properties": {
-          "page": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CMSPage"
-            }
-          }
-        }
-      },
-      "CMSPage": {
-        "type": "object",
-        "properties": {
-          "uid": {
-            "type": "string"
-          },
-          "uuid": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          },
-          "template": {
-            "type": "string"
-          },
-          "typeCode": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "robotTag": {
-            "type": "string"
-          },
-          "defaultPage": {
-            "type": "boolean"
-          },
-          "contentSlots": {
-            "$ref": "#/components/schemas/ContentSlotList"
-          },
-          "catalogVersionUuid": {
-            "type": "string"
-          },
-          "otherProperties": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "object"
-            }
-          }
-        }
-      },
       "CXML": {
         "type": "object",
         "properties": {
@@ -40058,57 +40003,6 @@
         },
         "description": "Object of the comment, which can be added to any Item in the commerce suite."
       },
-      "ComponentIDList": {
-        "type": "object",
-        "properties": {
-          "idList": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        },
-        "description": "List of component identifiers"
-      },
-      "ComponentList": {
-        "type": "object",
-        "properties": {
-          "component": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Component"
-            }
-          }
-        }
-      },
-      "Component": {
-        "type": "object",
-        "properties": {
-          "uid": {
-            "type": "string"
-          },
-          "uuid": {
-            "type": "string"
-          },
-          "typeCode": {
-            "type": "string"
-          },
-          "modifiedtime": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2024-04-15T09:32:29+01:00"
-          },
-          "name": {
-            "type": "string"
-          },
-          "otherProperties": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "object"
-            }
-          }
-        }
-      },
       "ConfigurationInfo": {
         "type": "object",
         "properties": {
@@ -40293,46 +40187,6 @@
           }
         },
         "description": "Representation of a Consignment Entry"
-      },
-      "ContentSlotList": {
-        "type": "object",
-        "properties": {
-          "contentSlot": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ContentSlot"
-            }
-          }
-        }
-      },
-      "ContentSlot": {
-        "type": "object",
-        "properties": {
-          "slotId": {
-            "type": "string"
-          },
-          "slotUuid": {
-            "type": "string"
-          },
-          "position": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "slotShared": {
-            "type": "boolean"
-          },
-          "slotStatus": {
-            "type": "string"
-          },
-          "otherProperties": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "object"
-            }
-          }
-        }
       },
       "Country": {
         "type": "object",
