@@ -35420,7 +35420,8 @@
           }
         ]
       }
-    },
+    }
+  },
   "components": {
     "schemas": {
       "AccountSummary": {
