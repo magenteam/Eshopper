@@ -38356,38 +38356,6 @@
           }
         }
       },
-      "ContentSlot": {
-        "type": "object",
-        "properties": {
-          "slotId": {
-            "type": "string"
-          },
-          "slotUuid": {
-            "type": "string"
-          },
-          "position": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "slotShared": {
-            "type": "boolean"
-          },
-          "slotStatus": {
-            "type": "string"
-          },
-          "components": {
-            "$ref": "#/components/schemas/ComponentList"
-          },
-          "otherProperties": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "object"
-            }
-          }
-        }
-      },
       "Country": {
         "type": "object",
         "properties": {
