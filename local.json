@@ -38290,17 +38290,6 @@
         },
         "description": "Representation of a Consignment Entry"
       },
-      "ContentSlotList": {
-        "type": "object",
-        "properties": {
-          "contentSlot": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ContentSlot"
-            }
-          }
-        }
-      },
       "Country": {
         "type": "object",
         "properties": {
