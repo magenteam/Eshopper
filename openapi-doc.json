@@ -23842,6 +23842,6229 @@
         ]
       }
     },
+    "/{baseSiteId}/users/{userId}/notificationpreferences": {
+      "get": {
+        "tags": [
+          "Notification Preference"
+        ],
+        "summary": "Gets all notification preferences of the current customer",
+        "description": "Returns the notification preferences of the current customer.",
+        "operationId": "getNotificationPreferences",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/notificationPreferenceList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/notificationPreferenceList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "Notification Preference"
+        ],
+        "summary": "Updates the notification preferences of the current customer",
+        "description": "Updates the notification preference of the current customer.",
+        "operationId": "updateNotificationPreferences",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/BasicnotificationPreferenceList"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BasicnotificationPreferenceList"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/notifications/sitemessages": {
+      "get": {
+        "tags": [
+          "Site Messages"
+        ],
+        "summary": "Gets all site messages of current customer.",
+        "description": "Returns the site messages of current customer.",
+        "operationId": "siteMessages",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "currentPage",
+            "in": "query",
+            "description": "The current result page requested.",
+            "schema": {
+              "type": "string",
+              "default": "0"
+            }
+          },
+          {
+            "name": "needsTotal",
+            "in": "query",
+            "description": "The flag for indicating if total number of results is needed or not.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "true",
+                "false"
+              ],
+              "default": "true"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "The number of results returned per page.",
+            "schema": {
+              "type": "string",
+              "default": "10"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "The sorting method applied to the return results.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/siteMessageSearchResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/siteMessageSearchResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/orderApprovalPermissions": {
+      "get": {
+        "tags": [
+          "Order Approval Permissions"
+        ],
+        "summary": "Retrieves the order approval permissions.",
+        "description": "Retrieves the list of order approval permissions given to a user. Such permissions allow the approval to exceed order, budget, or time threshold. The response may display the results across multiple pages, when applicable.",
+        "operationId": "getOrderApprovalPermissions",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "currentPage",
+            "in": "query",
+            "description": "Current result page. Default value is 0.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of results returned per page.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sorting method applied to the return results.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderApprovalPermissionList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Order Approval Permissions"
+        ],
+        "summary": "Creates an order approval permission.",
+        "description": "Creates an order approval permission for a user. These permissions allow the approval to exceed order, budget, or time threshold in a workflow.",
+        "operationId": "createOrderApprovalPermission",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrderApprovalPermission"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderApprovalPermission"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/orderApprovalPermissions/{orderApprovalPermissionCode}": {
+      "get": {
+        "tags": [
+          "Order Approval Permissions"
+        ],
+        "summary": "Retrieves the order approval permission.",
+        "operationId": "getOrderApprovalPermission",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "orderApprovalPermissionCode",
+            "in": "path",
+            "description": "Order approval permission code.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderApprovalPermission"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "Order Approval Permissions"
+        ],
+        "summary": "Updates the order approval permission.",
+        "operationId": "updateOrderApprovalPermission",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "orderApprovalPermissionCode",
+            "in": "path",
+            "description": "Order approval permission code.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrderApprovalPermission"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderApprovalPermission"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/orderReturns": {
+      "get": {
+        "tags": [
+          "Return Requests"
+        ],
+        "summary": "Retrieves the return request history of the customer.",
+        "description": "Retrieves the order history for all return requests associated with a customer.",
+        "operationId": "getReturnRequests",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "currentPage",
+            "in": "query",
+            "description": "Current result page. Default value is 0.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of results returned per page.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sorting method applied to the return results.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReturnRequestList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Return Requests"
+        ],
+        "summary": "Creates an order return request.",
+        "description": "Creates an order return request. An order can be completely or partially returned. For a complete return, add all order entry numbers and quantities in the request body. For a partial return, only add the order entry numbers and quantities of the selected products.",
+        "operationId": "createReturnRequest",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReturnRequestEntryInputList"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReturnRequest"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/orderReturns/{returnRequestCode}": {
+      "get": {
+        "tags": [
+          "Return Requests"
+        ],
+        "summary": "Retrieves the details of a return request.",
+        "description": "Retrieves the details of a return request. To get entryGroup information, set fields value as follows: fields=order(entryGroups(BASIC)), fields=order(entryGroups(DEFAULT)), or fields=order(entryGroups(FULL)).",
+        "operationId": "getReturnRequest",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "returnRequestCode",
+            "in": "path",
+            "description": "Order returns request code.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReturnRequest"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "Return Requests"
+        ],
+        "summary": "Updates the order return request using the specified code.",
+        "description": "Updates the order return request. Only cancellation of the request is supported by setting the attribute status to CANCELLING. Cancellation of the return request cannot be reverted",
+        "operationId": "updateReturnRequest",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "returnRequestCode",
+            "in": "path",
+            "description": "Order returns request code.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReturnRequestModification"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/orderapprovals": {
+      "get": {
+        "tags": [
+          "Order Approvals"
+        ],
+        "summary": "Retrieves the orders to approve.",
+        "description": "Retrieves the orders that the user is allowed to approve.",
+        "operationId": "getOrderApprovals",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "currentPage",
+            "in": "query",
+            "description": "Current result page. Default value is 0.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of results returned per page.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sorting method applied to the return results.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderApprovalList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/orderapprovals/{orderApprovalCode}": {
+      "get": {
+        "tags": [
+          "Order Approvals"
+        ],
+        "summary": "Retrieves an order to approve.",
+        "description": "Retrieves the details of an order to approve.",
+        "operationId": "getOrderApproval",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "orderApprovalCode",
+            "in": "path",
+            "description": "Order approval code.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderApproval"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/orderapprovals/{orderApprovalCode}/decision": {
+      "post": {
+        "tags": [
+          "Order Approvals"
+        ],
+        "summary": "Creates a decision for the order approval.",
+        "description": "Creates a decision (approval or rejection) for the order, which will trigger the next step in the approval workflow.",
+        "operationId": "doMakeOrderApprovalDecision",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "orderApprovalCode",
+            "in": "path",
+            "description": "Order approval code.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrderApprovalDecision"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderApprovalDecision"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/orders": {
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "Retrieves the order history of a customer.",
+        "description": "Retrieves the order history of a customer. The response may display the results across multiple pages, when applicable.",
+        "operationId": "getUserOrderHistory",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "currentPage",
+            "in": "query",
+            "description": "Current result page. Default value is 0.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "The number of results returned per page.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sorting method applied to the return results.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "statuses",
+            "in": "query",
+            "description": "Filters orders with specified status(es). For example, statuses = CANCELLED returns CANCELLED orders. To filter multiple statues, separate statues with \",\" and all orders with these statuses will be returned. For example, statuses = CANCELLED,COMPLETED,READY returns all orders with statuses CANCELLED,COMPLETED, and READY.\nOptions available are:\nCANCELLING,\nCHECKED_VALID,\nCREATED,\nOPEN,\nREADY,\nCHECKED_INVALID,\nON_HOLD,\nON_VALIDATION,\nPENDING_APPROVAL,\nSUSPENDED,\nCOMPLETED,\nPAYMENT_AUTHORIZED,\nPENDING_APPROVAL_FROM_MERCHANT,\nCANCELLED,\nPAYMENT_NOT_AUTHORIZED,\nPENDING_QUOTE,\nAPPROVED_QUOTE,\nPAYMENT_AMOUNT_RESERVED,\nPAYMENT_AMOUNT_NOT_RESERVED,\nREJECTED_QUOTE,\nAPPROVED,\nPAYMENT_CAPTURED,\nPAYMENT_NOT_CAPTURED,\nREJECTED,\nAPPROVED_BY_MERCHANT,\nFRAUD_CHECKED,\nORDER_SPLIT,\nREJECTED_BY_MERCHANT,\nASSIGNED_TO_ADMIN,\nPROCESSING_ERROR,\nB2B_PROCESSING_ERROR,\nWAIT_FRAUD_MANUAL_CHECK,\nPAYMENT_NOT_VOIDED,\nTAX_NOT_VOIDED,\nTAX_NOT_COMMITTED,\nTAX_NOT_REQUOTED",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderHistoryList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderHistoryList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "Creates an order.",
+        "description": "Creates an order and returns the order details. The response contains all the order data.",
+        "operationId": "placeOrder",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cartId",
+            "in": "query",
+            "description": "Cart code for logged in user, cart GUID for guest checkout",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Order"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Order"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/orders/{code}": {
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "Retrieves the order.",
+        "description": "Retrieves the details of the order. To get entryGroup information, set fields value as follows: fields=entryGroups(BASIC), fields=entryGroups(DEFAULT), or fields=entryGroups(FULL).",
+        "operationId": "getUserOrders",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Order GUID or order code.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Order"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Order"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/orders/{code}/cancellation": {
+      "post": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "Cancels an order.",
+        "description": "Cancels an order, completely or partially. For a complete cancellation, add all the order entry numbers and quantities in the request body. For partial cancellation, only add the order entry numbers and quantities to be cancelled.",
+        "operationId": "doCancelOrder",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Order code",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CancellationRequestEntryInputList"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/orders/{code}/invoices": {
+      "get": {
+        "tags": [
+          "Invoices"
+        ],
+        "summary": "Get invoices for an order.",
+        "description": "Returns invoices based on a specific order code. The response contains list of invoice information.",
+        "operationId": "getUserOrderInvoices",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Order Code",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "currentPage",
+            "in": "query",
+            "description": "The current result page requested.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "The number of results returned per page.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sorting method applied to the return results.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of invoice of an order",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/SAPInvoiceList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SAPInvoiceList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/orders/{code}/invoices/{invoiceId}/download": {
+      "get": {
+        "tags": [
+          "Invoices"
+        ],
+        "summary": "Get binary invoice of an order",
+        "description": "Get invoice of an order in encoded byte array",
+        "operationId": "getUserOrderInvoiceBinary",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Order Code",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "externalSystemId",
+            "in": "query",
+            "description": "External system identifier where the invoice resides.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "S4SALES"
+          },
+          {
+            "name": "invoiceId",
+            "in": "path",
+            "description": "Invoice ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "format": "byte"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/orders/{orderCode}/consignments/{consignmentCode}/tracking": {
+      "get": {
+        "tags": [
+          "Consignment Tracking"
+        ],
+        "summary": "Retrieves consignment tracking information",
+        "description": "Returns details of consignment tracking information based on the order code and the consignment code.",
+        "operationId": "getConsignmentTrackingData",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "consignmentCode",
+            "in": "path",
+            "description": "Consignment identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "orderCode",
+            "in": "path",
+            "description": "Order identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/consignmentTracking"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/consignmentTracking"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/orders/{orderId}/entries/{entryNumber}/ccpconfigurator/configurationOverview": {
+      "get": {
+        "tags": [
+          "Product Configurator CCP Order Integration"
+        ],
+        "summary": "Gets a product configuration overview of an order entry",
+        "description": "Gets a configuration overview, a simplified, condensed read-only view on the product configuration of an order entry. Only the selected attribute values are dislpayed here.",
+        "operationId": "getConfigurationOverviewForOrderEntry",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "entryNumber",
+            "in": "path",
+            "description": "Each entry in a cart has an entry number. Cart entries are numbered in ascending order, starting with zero.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "orderId",
+            "in": "path",
+            "description": "Order identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/CCPConfigurationOverview"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CCPConfigurationOverview"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/orders/{orderId}/entries/{entryNumber}/configurator/textfield": {
+      "get": {
+        "tags": [
+          "Product Configurator Textfield Template"
+        ],
+        "summary": "Get textfield configuration for order entry.",
+        "description": "Get the textfield configuration for an order entry.",
+        "operationId": "getTextfieldConfigurationForOrderEntry",
+        "parameters": [
+          {
+            "name": "entryNumber",
+            "in": "path",
+            "description": "Each entry in a cart has an entry number. Cart entries are numbered in ascending order, starting with zero.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "orderId",
+            "in": "path",
+            "description": "Order identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConfigurationInfoList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConfigurationInfoList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/orgCustomers": {
+      "get": {
+        "tags": [
+          "Organizational Unit Customer Management"
+        ],
+        "summary": "Retrieves the list of organizational customers.",
+        "description": "Retrieves the list of organizational customers. The response may display the results across multiple pages, when applicable.",
+        "operationId": "getOrgCustomers",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "currentPage",
+            "in": "query",
+            "description": "Current result page. Default value is 0.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of results returned per page.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 20
+            },
+            "example": 20
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sorting method applied to the return results.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "name"
+            },
+            "example": "name"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrgUnitUserList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Organizational Unit Customer Management"
+        ],
+        "summary": "Creates an organizational customer profile.",
+        "operationId": "createOrgCustomer",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrgCustomerCreation"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/orgCustomers/{orgCustomerId}": {
+      "get": {
+        "tags": [
+          "Organizational Unit Customer Management"
+        ],
+        "summary": "Retrieves the profile of the organizational unit customer.",
+        "operationId": "getOrgCustomer",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "BASIC",
+                "DEFAULT",
+                "FULL"
+              ]
+            }
+          },
+          {
+            "name": "orgCustomerId",
+            "in": "path",
+            "description": "Organizational customer GUID.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ceff469f-25aa-4a10-99e3-da31245204e7"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "Organizational Unit Customer Management"
+        ],
+        "summary": "Updates the profile of the organizational unit customer.",
+        "operationId": "updateOrgCustomer",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "orgCustomerId",
+            "in": "path",
+            "description": "Organizational customer GUID.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ceff469f-25aa-4a10-99e3-da31245204e7"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrgCustomerModification"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/orgCustomers/{orgCustomerId}/approvers": {
+      "get": {
+        "tags": [
+          "Organizational Unit Customer Management"
+        ],
+        "summary": "Retrieves the approvers.",
+        "description": "Retrieves a list of approvers for the customer in the organizational unit.",
+        "operationId": "getOrgCustomerApprovers",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "currentPage",
+            "in": "query",
+            "description": "Current result page. Default value is 0.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "orgCustomerId",
+            "in": "path",
+            "description": "Organizational customer GUID.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ceff469f-25aa-4a10-99e3-da31245204e7"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of results returned per page.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 20
+            },
+            "example": 20
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sorting method applied to the returned results.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "name"
+            },
+            "example": "name"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrgUnitUserList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/orgCustomers/{orgCustomerId}/approvers/{approverId}": {
+      "post": {
+        "tags": [
+          "Organizational Unit Customer Management"
+        ],
+        "summary": "Adds an approver for an organizational customer.",
+        "operationId": "doAddApproverToOrgCustomer",
+        "parameters": [
+          {
+            "name": "approverId",
+            "in": "path",
+            "description": "Approver GUID.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "728c59e5-cccd-4713-811b-2031f03d885c"
+          },
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "orgCustomerId",
+            "in": "path",
+            "description": "Organizational customer GUID.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ceff469f-25aa-4a10-99e3-da31245204e7"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/B2BSelectionData"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Organizational Unit Customer Management"
+        ],
+        "summary": "Deletes an approver for an organizational customer.",
+        "operationId": "removeApproverFromOrgCustomer",
+        "parameters": [
+          {
+            "name": "approverId",
+            "in": "path",
+            "description": "Approver GUID.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "728c59e5-cccd-4713-811b-2031f03d885c"
+          },
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "orgCustomerId",
+            "in": "path",
+            "description": "Organizational customer GUID.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ceff469f-25aa-4a10-99e3-da31245204e7"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/B2BSelectionData"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/orgCustomers/{orgCustomerId}/orgUserGroups": {
+      "get": {
+        "tags": [
+          "Organizational Unit Customer Management"
+        ],
+        "summary": "Retrieves the organizational user groups.",
+        "description": "Retrieves the organizational user groups in the organizational unit.",
+        "operationId": "getOrgCustomerOrgUserGroups",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "currentPage",
+            "in": "query",
+            "description": "Current result page. Default value is 0.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "orgCustomerId",
+            "in": "path",
+            "description": "Organizational customer GUID.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ceff469f-25aa-4a10-99e3-da31245204e7"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of results returned per page.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 20
+            },
+            "example": 20
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sorting method applied to the return results.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "name"
+            },
+            "example": "name"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrgUnitUserGroupList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/orgCustomers/{orgCustomerId}/orgUserGroups/{userGroupId}": {
+      "post": {
+        "tags": [
+          "Organizational Unit Customer Management"
+        ],
+        "summary": "Creates an Organizational organizational user group  objfor an organizational customer.",
+        "operationId": "doAddOrgUserGroupToOrgCustomer",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "orgCustomerId",
+            "in": "path",
+            "description": "Organizational customer GUID.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ceff469f-25aa-4a10-99e3-da31245204e7"
+          },
+          {
+            "name": "userGroupId",
+            "in": "path",
+            "description": "Organizational user group GUID.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "Approvers"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/B2BSelectionData"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Organizational Unit Customer Management"
+        ],
+        "summary": "Deletes an organizational user group for an organizational customer.",
+        "description": "Deletes an organizational user group for an organizational customer using the userGroupId.",
+        "operationId": "removeOrgUserGroupFromOrgCustomer",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "orgCustomerId",
+            "in": "path",
+            "description": "Organizational customer GUID.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ceff469f-25aa-4a10-99e3-da31245204e7"
+          },
+          {
+            "name": "userGroupId",
+            "in": "path",
+            "description": "Organizational user group GUID.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "Approvers"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/orgCustomers/{orgCustomerId}/permissions": {
+      "get": {
+        "tags": [
+          "Organizational Unit Customer Management"
+        ],
+        "summary": "Retrieves the permissions of the customer.",
+        "description": "Retrieves the permissions of the customer in the organizational unit.",
+        "operationId": "getOrgCustomerPermissions",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "currentPage",
+            "in": "query",
+            "description": "Current result page. Default value is 0.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "orgCustomerId",
+            "in": "path",
+            "description": "Organizational customer GUID.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ceff469f-25aa-4a10-99e3-da31245204e7"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of results returned per page.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 20
+            },
+            "example": 20
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sorting method applied to the returned results.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "name"
+            },
+            "example": "name"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderApprovalPermissionList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/orgCustomers/{orgCustomerId}/permissions/{permissionId}": {
+      "post": {
+        "tags": [
+          "Organizational Unit Customer Management"
+        ],
+        "summary": "Creates a permission for an organizational customer.",
+        "operationId": "doAddPermissionToOrgCustomer",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "orgCustomerId",
+            "in": "path",
+            "description": "Organizational customer GUID.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ceff469f-25aa-4a10-99e3-da31245204e7"
+          },
+          {
+            "name": "permissionId",
+            "in": "path",
+            "description": "Permission GUID.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/B2BSelectionData"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Organizational Unit Customer Management"
+        ],
+        "summary": "Deletes a permission for an organizational customer.",
+        "operationId": "removePermissionFromOrgCustomer",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "orgCustomerId",
+            "in": "path",
+            "description": "Organizational customer GUID.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ceff469f-25aa-4a10-99e3-da31245204e7"
+          },
+          {
+            "name": "permissionId",
+            "in": "path",
+            "description": "Permission GUID.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/B2BSelectionData"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/orgCustomers/{orgCustomerId}/roles": {
+      "post": {
+        "tags": [
+          "Organizational Unit Management"
+        ],
+        "summary": "Creates a role for an organizational customer.",
+        "operationId": "doAddRoleToOrgCustomer",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "orgCustomerId",
+            "in": "path",
+            "description": "Organizational customer to which the role will be added.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ceff469f-25aa-4a10-99e3-da31245204e7"
+          },
+          {
+            "name": "roleId",
+            "in": "query",
+            "description": "Role that is added to the user.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "b2bapprovergroup"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/B2BSelectionData"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/orgCustomers/{orgCustomerId}/roles/{roleId}": {
+      "delete": {
+        "tags": [
+          "Organizational Unit Management"
+        ],
+        "summary": "Deletes the role from the organizational customer.",
+        "operationId": "removeRoleFromOrgCustomer",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "orgCustomerId",
+            "in": "path",
+            "description": "Organizational customer from which the role will be removed.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ceff469f-25aa-4a10-99e3-da31245204e7"
+          },
+          {
+            "name": "roleId",
+            "in": "path",
+            "description": "Role that is removed from the user. Example roles: b2badmingroup, b2bmanagergroup, or b2bcustomergroup.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/B2BSelectionData"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/orgUnitUserGroups": {
+      "get": {
+        "tags": [
+          "Organizational Unit User Groups"
+        ],
+        "summary": "Retrieves the list of user groups in an organizational unit.",
+        "description": "Retrieves the details of the user group that is accessible by the base site.",
+        "operationId": "getOrgUnitUserGroups",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "currentPage",
+            "in": "query",
+            "description": "Current result page. Default value is 0.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of results returned per page.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 20
+            },
+            "example": 20
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sorting method applied to the return results.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "uid"
+            },
+            "example": "uid"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrgUnitUserGroupList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Organizational Unit User Groups"
+        ],
+        "summary": "Creates a new user group in an organizational unit.",
+        "description": "Creates a new organizational unit user group.",
+        "operationId": "createOrgUnitUserGroup",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrgUnitUserGroup"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrgUnitUserGroup"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/orgUnitUserGroups/{orgUnitUserGroupId}": {
+      "get": {
+        "tags": [
+          "Organizational Unit User Groups"
+        ],
+        "summary": "Retrieves the details of the organizational unit user group.",
+        "description": "Retrieves the details of the user group that is accessible by the base site.",
+        "operationId": "getOrgUnitUserGroup",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "orgUnitUserGroupId",
+            "in": "path",
+            "description": "Organizational unit user group identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "b2bapprovergroup"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrgUnitUserGroup"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Organizational Unit User Groups"
+        ],
+        "summary": "Deletes the organizational unit user group.",
+        "operationId": "removeOrgUnitUserGroup",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "orgUnitUserGroupId",
+            "in": "path",
+            "description": "Organizational unit user group identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "b2bapprovergroup"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "Organizational Unit User Groups"
+        ],
+        "summary": "Updates the organizational unit user group.",
+        "operationId": "updateOrgUnitUserGroup",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "orgUnitUserGroupId",
+            "in": "path",
+            "description": "Organizational unit user group identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "b2bapprovergroup"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrgUnitUserGroup"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/orgUnitUserGroups/{orgUnitUserGroupId}/availableOrderApprovalPermissions": {
+      "get": {
+        "tags": [
+          "Organizational Unit User Groups"
+        ],
+        "summary": "Retrieves the order approval permissions.",
+        "description": "Retrieves the order approval permissions that can belong to the organizational unit user group. The 'selected' property of permissions that already belong to the user group is true.",
+        "operationId": "getOrderApprovalPermissionsForOrgUnitUserGroup",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "currentPage",
+            "in": "query",
+            "description": "Current result page. Default value is 0.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "orgUnitUserGroupId",
+            "in": "path",
+            "description": "Organizational unit user group identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "b2bapprovergroup"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of results returned per page.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 20
+            },
+            "example": 20
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sorting method applied to the return results.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "name"
+            },
+            "example": "name"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderApprovalPermissionList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
   "components": {
     "schemas": {
       "AccountSummary": {
