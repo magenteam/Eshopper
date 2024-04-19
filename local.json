@@ -1991,6 +1991,7 @@
           }
         ]
       }
+    }
     },
     "/{baseSiteId}/costcenters": {
       "get": {
@@ -2232,7 +2233,6 @@
           }
         ]
       }
-    }
     },
     "/{baseSiteId}/costcenters/{costCenterCode}": {
       "get": {
