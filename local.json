@@ -2232,7 +2232,6 @@
           }
         ]
       }
-    }
     },
     "/{baseSiteId}/costcenters/{costCenterCode}": {
       "get": {
@@ -2496,6 +2495,7 @@
           }
         ]
       }
+    }
     },
     "/{baseSiteId}/costcenters/{costCenterCode}/budgets": {
       "get": {
