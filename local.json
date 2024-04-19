@@ -2170,6 +2170,146 @@
                 }
             ]
         }
+    },
+    "/{baseSiteId}/products/suggestions":{
+        "get":{
+            "tags":[
+                "Products"
+            ],
+            "summary":"Retrieves the available suggestions.",
+            "description":"Retrieves the suggestions related to a specified term and limits the results according to the value of the max parameter.",
+            "operationId":"getSuggestions",
+            "parameters":[
+                {
+                    "name":"baseSiteId",
+                    "in":"path",
+                    "description":"Base site identifier",
+                    "required":true,
+                    "schema":{
+                        "type":"string"
+                    }
+                },
+                {
+                    "name":"fields",
+                    "in":"query",
+                    "description":"Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+                    "required":false,
+                    "schema":{
+                        "type":"string",
+                        "default":"DEFAULT"
+                    }
+                },
+                {
+                    "name":"max",
+                    "in":"query",
+                    "description":"Maximum number of results.",
+                    "required":false,
+                    "schema":{
+                        "type":"integer",
+                        "format":"int32",
+                        "default":10
+                    }
+                },
+                {
+                    "name":"term",
+                    "in":"query",
+                    "description":"Specified term. The suggestions will be given based on it.",
+                    "required":true,
+                    "schema":{
+                        "type":"string"
+                    }
+                }
+            ],
+            "responses":{
+                "200":{
+                    "description":"OK",
+                    "content":{
+                        "application/xml":{
+                            "schema":{
+                                "$ref":"#/components/schemas/SuggestionList"
+                            }
+                        },
+                        "application/json":{
+                            "schema":{
+                                "$ref":"#/components/schemas/SuggestionList"
+                            }
+                        }
+                    }
+                },
+                "400":{
+                    "description":"Bad Request",
+                    "content":{
+                        "application/xml":{
+                            "schema":{
+                                "$ref":"#/components/schemas/errorList"
+                            }
+                        },
+                        "application/json":{
+                            "schema":{
+                                "$ref":"#/components/schemas/errorList"
+                            }
+                        }
+                    }
+                },
+                "401":{
+                    "description":"Unauthorized",
+                    "content":{
+                        "application/xml":{
+                            "schema":{
+                                "$ref":"#/components/schemas/errorList"
+                            }
+                        },
+                        "application/json":{
+                            "schema":{
+                                "$ref":"#/components/schemas/errorList"
+                            }
+                        }
+                    }
+                },
+                "403":{
+                    "description":"Forbidden",
+                    "content":{
+                        "application/xml":{
+                            "schema":{
+                                "$ref":"#/components/schemas/errorList"
+                            }
+                        },
+                        "application/json":{
+                            "schema":{
+                                "$ref":"#/components/schemas/errorList"
+                            }
+                        }
+                    }
+                },
+                "404":{
+                    "description":"Not Found",
+                    "content":{
+                        "application/xml":{
+                            "schema":{
+                                "$ref":"#/components/schemas/errorList"
+                            }
+                        },
+                        "application/json":{
+                            "schema":{
+                                "$ref":"#/components/schemas/errorList"
+                            }
+                        }
+                    }
+                }
+            },
+            "security":[
+                {
+                    "oauth2_Password":[
+                        "basic"
+                    ]
+                },
+                {
+                    "oauth2_client_credentials":[
+                        "extended"
+                    ]
+                }
+            ]
+        }
     }
     },
     "/{baseSiteId}/cities/{cityId}/districts": {
