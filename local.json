@@ -1100,6 +1100,7 @@
                }
             ]
          }
+      }
       },
       "/{baseSiteId}/ccpconfigurator/{configId}":{
          "get":{
