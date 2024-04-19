@@ -32737,6 +32737,2954 @@
         ]
       }
     },
+    "/{baseSiteId}/users/{userId}/orgUnits/{orgUnitId}/orgDocuments/{orgDocumentId}/attachments/{orgDocumentAttachmentId}": {
+      "get": {
+        "tags": [
+          "Organizational Unit Account Summary"
+        ],
+        "summary": "Retrieves the attachment of a document.",
+        "description": "Retrieves the attachment associated with a given organizational document for the given attachment identifier.",
+        "operationId": "getOrgDocumentAttachment",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "orgDocumentAttachmentId",
+            "in": "path",
+            "description": "Organizational document attachment identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "0000001"
+          },
+          {
+            "name": "orgDocumentId",
+            "in": "path",
+            "description": "Organizational document identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "0000001"
+          },
+          {
+            "name": "orgUnitId",
+            "in": "path",
+            "description": "Organizational unit identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "RUSTIC"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "format": "byte"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/orgUnitsAvailableApprovalProcesses": {
+      "get": {
+        "tags": [
+          "Organizational Unit Management"
+        ],
+        "summary": "Retrieves the available business approval processes.",
+        "operationId": "getOrgUnitsAvailableApprovalProcesses",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/B2BApprovalProcessList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/orgUnitsRootNodeTree": {
+      "get": {
+        "tags": [
+          "Organizational Unit Management"
+        ],
+        "summary": "Retrieves the root organizational unit node.",
+        "description": "Retrieves the root organizational unit node and the child nodes associated with it.",
+        "operationId": "getOrgUnitsRootNodeTree",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/B2BUnitNode"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/password": {
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Updates the password of a customer.",
+        "operationId": "replaceUserPassword",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "new",
+            "in": "query",
+            "description": "New password.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "old",
+            "in": "query",
+            "description": "Old password.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Accepted"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/paymentdetails": {
+      "get": {
+        "tags": [
+          "Payment Details"
+        ],
+        "summary": "Retrieves all credit card payment details of the customer.",
+        "description": "Retrieves all credit card payment details made by the customer.",
+        "operationId": "getPaymentDetailsList",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "saved",
+            "in": "query",
+            "description": "The flag to mark if the detailed payment is a saved one.",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentDetailsList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentDetailsList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/paymentdetails/{paymentDetailsId}": {
+      "get": {
+        "tags": [
+          "Payment Details"
+        ],
+        "summary": "Retrieves detailed information for a specific credit card payment.",
+        "description": "Retrieves specific credit card payment details made by the customer using the paymentDetailsId.",
+        "operationId": "getPaymentDetails",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "paymentDetailsId",
+            "in": "path",
+            "description": "Payment details identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Payment Details"
+        ],
+        "summary": "Updates existing detailed information for a specific credit card payment. ",
+        "description": "Updates existing credit card payment details made by the customer using the paymentDetailsId. Attributes not given in request will be defined again (set to null or default).",
+        "operationId": "replacePaymentDetails",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "paymentDetailsId",
+            "in": "path",
+            "description": "Payment details identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/PaymentDetails"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PaymentDetails"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Payment Details"
+        ],
+        "summary": "Deletes detailed information for a specific credit card payment.",
+        "description": "Deletes specific credit card payment details made by the customer using the paymentDetailsId.",
+        "operationId": "removePaymentDetails",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "paymentDetailsId",
+            "in": "path",
+            "description": "Payment details identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "Payment Details"
+        ],
+        "summary": "Updates existing detailed information for a specific credit card payment. ",
+        "description": "Updates existing credit card payment details made by the customer using the paymentDetailsId. Only those attributes provided in the request will be updated.",
+        "operationId": "updatePaymentDetails",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "paymentDetailsId",
+            "in": "path",
+            "description": "Payment details identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/PaymentDetails"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PaymentDetails"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/productinterests": {
+      "get": {
+        "tags": [
+          "Product Interests"
+        ],
+        "summary": "Retrieves the product interests of a customer.",
+        "description": "Retrieves product interests as CustomerInterestsSearchResult for a specific user.",
+        "operationId": "getProductInterests",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "currentPage",
+            "in": "query",
+            "description": "Current result page. Default value is 0.",
+            "schema": {
+              "type": "string",
+              "default": "0"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "needsTotal",
+            "in": "query",
+            "description": "Flag to indicate if the total number of results is needed or not.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "true",
+                "false"
+              ],
+              "default": "true"
+            }
+          },
+          {
+            "name": "notificationType",
+            "in": "query",
+            "description": "Notification type.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "BACK_IN_STOCK"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "The number of results returned per page.",
+            "schema": {
+              "type": "string",
+              "default": "20"
+            }
+          },
+          {
+            "name": "productCode",
+            "in": "query",
+            "description": "Product identifier.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "00001000"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sorting method applied to the return results. Default value is by name.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/customerInterestsSearchPage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/customerInterestsSearchPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Product Interests"
+        ],
+        "summary": "Creates product interests.",
+        "description": "Creates a product interest for a customer at a time.",
+        "operationId": "createProductInterest",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "notificationType",
+            "in": "query",
+            "description": "Notification type.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "BACK_IN_STOCK"
+          },
+          {
+            "name": "productCode",
+            "in": "query",
+            "description": "Product identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "00001000"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/productInterestRelation"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/productInterestRelation"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Product Interests"
+        ],
+        "summary": "Deletes the product interests.",
+        "description": "Deletes the product interests that a customer saved with product code and notification type.",
+        "operationId": "removeProductInterest",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "notificationType",
+            "in": "query",
+            "description": "Notification type.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "BACK_IN_STOCK"
+          },
+          {
+            "name": "productCode",
+            "in": "query",
+            "description": "Product identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "00001000"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/quotes": {
+      "get": {
+        "tags": [
+          "Quotes"
+        ],
+        "summary": "Retrieves all quotes for a customer.",
+        "description": "Retrieves all quote details associated with a customer. The response may display the results across multiple pages, when applicable.",
+        "operationId": "getQuotes",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "currentPage",
+            "in": "query",
+            "description": "Current result page. Default value is 0.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "BASIC"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of results returned per page.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sorting method applied to the return results.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QuoteList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Quotes"
+        ],
+        "summary": "Creates a quote.",
+        "description": "Creates a quote by linking a cart using the cart identifier (cartId) to the quote. To trigger a requote, provide a value to the quoteCode parameter, instead of the cartId parameter inside the request body. The response body will contain the new data for the quote.",
+        "operationId": "createQuote",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QuoteStarter"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Quote"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/quotes/{quoteCode}": {
+      "get": {
+        "tags": [
+          "Quotes"
+        ],
+        "summary": "Retrieves the quote.",
+        "description": "Retrieves the details of a quote. To get entryGroup information, set fields value as follows: fields=entryGroups(BASIC), fields=entryGroups(DEFAULT), or fields=entryGroups(FULL).",
+        "operationId": "getQuote",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "quoteCode",
+            "in": "path",
+            "description": "Identifying code of the quote",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Quote"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Quotes"
+        ],
+        "summary": "Updates the quote.",
+        "description": "Updates the name, description, and expiration date of the quote.",
+        "operationId": "replaceQuote",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "quoteCode",
+            "in": "path",
+            "description": "Identifying code of the quote",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QuoteMetadata"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "Quotes"
+        ],
+        "summary": "Updates the quote.",
+        "description": "Updates the name, description, or expiration date of the quote.",
+        "operationId": "updateQuote",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "quoteCode",
+            "in": "path",
+            "description": "Identifying code of the quote",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QuoteMetadata"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/quotes/{quoteCode}/action": {
+      "post": {
+        "tags": [
+          "Quotes"
+        ],
+        "summary": "Creates workflow actions for the quote.",
+        "description": "Creates workflow action during the quote editing process. Possible values are: CANCEL, SUBMIT, EDIT, CHECKOUT, APPROVE, or REJECT.",
+        "operationId": "performQuoteAction",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "quoteCode",
+            "in": "path",
+            "description": "Code of the quote.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QuoteAction"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/quotes/{quoteCode}/comments": {
+      "post": {
+        "tags": [
+          "Quotes"
+        ],
+        "summary": "Creates a comment for a quote.",
+        "description": "Creates a comment for a quote. Text is added in the request body.",
+        "operationId": "createCommentForQuote",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "quoteCode",
+            "in": "path",
+            "description": "Identifying code of the quote",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateComment"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/quotes/{quoteCode}/discounts": {
+      "post": {
+        "tags": [
+          "Quotes"
+        ],
+        "summary": "Creates a discount for an existing quote.",
+        "description": "Creates a discount for an open quote. Only sellers are allowed to apply a discount to a quote. The types of discount are: PERCENT, for discount by percentage; ABSOLUTE, for discount by amount; and TARGET, for discount by adjustment of the total value.",
+        "operationId": "createQuoteDiscount",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "quoteCode",
+            "in": "path",
+            "description": "Code of the quote.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QuoteDiscount"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/quotes/{quoteCode}/entries/{entryNumber}/comments": {
+      "post": {
+        "tags": [
+          "Quotes"
+        ],
+        "summary": "Creates a comment for a quote entry.",
+        "description": "Creates a comment for a quote entry. Text is added in the request body.",
+        "operationId": "createQuoteEntryComment",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "entryNumber",
+            "in": "path",
+            "description": "Each entry in a cart has an entry number. Cart entries are numbered in ascending order, starting with zero.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "quoteCode",
+            "in": "path",
+            "description": "Code of the quote.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateComment"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/quotes/{quoteId}/entries/{entryNumber}/ccpconfigurator/configurationOverview": {
+      "get": {
+        "tags": [
+          "Product Configurator CCP Quote Integration"
+        ],
+        "summary": "Gets a product configuration overview of an quote entry",
+        "description": "Gets a configuration overview, a simplified, condensed read-only view on the product configuration of an quote entry. Only the selected attribute values are present here",
+        "operationId": "getConfigurationOverviewForQuote",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "entryNumber",
+            "in": "path",
+            "description": "Each entry in a cart has an entry number. Cart entries are numbered in ascending order, starting with zero.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "quoteId",
+            "in": "path",
+            "description": "Quote identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/CCPConfigurationOverview"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CCPConfigurationOverview"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
   "components": {
     "schemas": {
       "AccountSummary": {
