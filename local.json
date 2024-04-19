@@ -40798,52 +40798,6 @@
             },
             "description":"Lists all available languages (all languages used for a particular store). If the list of languages for a base store is empty, a list of all languages available in the system will be returned"
          },
-         "ListAdaptedComponents":{
-            "type":"object",
-            "properties":{
-               "component":{
-                  "type":"array",
-                  "items":{
-                     "$ref":"#/components/schemas/ComponentAdaptedData"
-                  }
-               },
-               "pagination":{
-                  "$ref":"#/components/schemas/pagination"
-               },
-               "sorts":{
-                  "type":"array",
-                  "items":{
-                     "$ref":"#/components/schemas/sort"
-                  }
-               }
-            },
-            "xml":{
-               "name":"components"
-            }
-         },
-         "ListAdaptedPages":{
-            "type":"object",
-            "properties":{
-               "page":{
-                  "type":"array",
-                  "items":{
-                     "$ref":"#/components/schemas/PageAdaptedData"
-                  }
-               },
-               "pagination":{
-                  "$ref":"#/components/schemas/pagination"
-               },
-               "sorts":{
-                  "type":"array",
-                  "items":{
-                     "$ref":"#/components/schemas/sort"
-                  }
-               }
-            },
-            "xml":{
-               "name":"pages"
-            }
-         },
          "MemberList":{
             "type":"object",
             "properties":{
