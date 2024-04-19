@@ -41060,61 +41060,6 @@
         },
         "description": "Representation of a Product Reference List"
       },
-      "ProductSearchPage": {
-        "type": "object",
-        "properties": {
-          "freeTextSearch": {
-            "type": "string",
-            "description": "Free text search"
-          },
-          "categoryCode": {
-            "type": "string",
-            "description": "Code of category"
-          },
-          "keywordRedirectUrl": {
-            "type": "string",
-            "description": "Redirect url address keyword"
-          },
-          "spellingSuggestion": {
-            "$ref": "#/components/schemas/SpellingSuggestion"
-          },
-          "products": {
-            "type": "array",
-            "description": "List of products",
-            "items": {
-              "$ref": "#/components/schemas/Product"
-            }
-          },
-          "sorts": {
-            "type": "array",
-            "description": "List of sorts",
-            "items": {
-              "$ref": "#/components/schemas/Sort"
-            }
-          },
-          "pagination": {
-            "$ref": "#/components/schemas/deprecatedPagination"
-          },
-          "currentQuery": {
-            "$ref": "#/components/schemas/SearchState"
-          },
-          "breadcrumbs": {
-            "type": "array",
-            "description": "List of breadcrumbs info",
-            "items": {
-              "$ref": "#/components/schemas/Breadcrumb"
-            }
-          },
-          "facets": {
-            "type": "array",
-            "description": "List of facets",
-            "items": {
-              "$ref": "#/components/schemas/Facet"
-            }
-          }
-        },
-        "description": "Representation of a Product Search Page"
-      },
       "Promotion": {
         "type": "object",
         "properties": {
