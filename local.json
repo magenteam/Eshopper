@@ -37415,61 +37415,6 @@
         },
         "description": "Requests body parameter that contains attributes for creating the order entry, such as quantity, product code, and configuration identifier."
       },
-      "CMSPageList": {
-        "type": "object",
-        "properties": {
-          "page": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CMSPage"
-            }
-          }
-        }
-      },
-      "CMSPage": {
-        "type": "object",
-        "properties": {
-          "uid": {
-            "type": "string"
-          },
-          "uuid": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          },
-          "template": {
-            "type": "string"
-          },
-          "typeCode": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "robotTag": {
-            "type": "string"
-          },
-          "defaultPage": {
-            "type": "boolean"
-          },
-          "contentSlots": {
-            "$ref": "#/components/schemas/ContentSlotList"
-          },
-          "catalogVersionUuid": {
-            "type": "string"
-          },
-          "otherProperties": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "object"
-            }
-          }
-        }
-      },
       "CXML": {
         "type": "object",
         "properties": {
