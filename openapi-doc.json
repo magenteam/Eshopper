@@ -22012,6 +22012,531 @@
         ]
       }
     },
+    "/{baseSiteId}/users/{userId}/consents": {
+      "post": {
+        "tags": [
+          "Consents"
+        ],
+        "summary": "Creates consent.",
+        "description": "Creates consent to collect or transfer the personal data of a customer.",
+        "operationId": "doGiveConsent",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "consentTemplateId",
+            "in": "query",
+            "description": "Consent template identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "00001000"
+          },
+          {
+            "name": "consentTemplateVersion",
+            "in": "query",
+            "description": "Consent template version.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "example": "00001000"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConsentTemplate"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConsentTemplate"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/consents/{consentCode}": {
+      "delete": {
+        "tags": [
+          "Consents"
+        ],
+        "summary": "Deletes the user consent.",
+        "description": "If the consent was given, then the consent is deleted. If the consent was withdrawn, then it returns a withdrawal error. If the consent doesn't exist, it returns a \"not found\" error. If the customer is anonymous, then it returns an \"access denied\" error.",
+        "operationId": "removeConsent",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "consentCode",
+            "in": "path",
+            "description": "Consent code.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "0000001"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/consenttemplates": {
+      "get": {
+        "tags": [
+          "Consents"
+        ],
+        "summary": "Retrieves the consents.",
+        "description": "If a customer has not given or has withdrawn their consent to the template, a date is not returned.",
+        "operationId": "getConsentTemplates",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConsentTemplateList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConsentTemplateList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
+    "/{baseSiteId}/users/{userId}/consenttemplates/{consentTemplateId}": {
+      "get": {
+        "tags": [
+          "Consents"
+        ],
+        "summary": "Retrieves the consent.",
+        "description": "Retrieves the consent using the template identifier. If a customer has not given or has withdrawn their consent to the template, a date is not returned.",
+        "operationId": "getConsentTemplate",
+        "parameters": [
+          {
+            "name": "baseSiteId",
+            "in": "path",
+            "description": "Base site identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "consentTemplateId",
+            "in": "path",
+            "description": "Consent template identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "00001000"
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Response configuration. This is the list of fields that should be returned in the response body. Examples: BASIC,DEFAULT,FULL",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DEFAULT"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConsentTemplate"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConsentTemplate"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2_Password": [
+              "basic"
+            ]
+          },
+          {
+            "oauth2_client_credentials": [
+              "extended"
+            ]
+          }
+        ]
+      }
+    },
   "components": {
     "schemas": {
       "AccountSummary": {
