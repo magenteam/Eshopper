@@ -1099,7 +1099,6 @@
           }
         ]
       }
-    }
     },
     "/{baseSiteId}/ccpconfigurator/{configId}": {
       "get": {
@@ -2496,6 +2495,7 @@
           }
         ]
       }
+    }
     },
     "/{baseSiteId}/costcenters/{costCenterCode}/budgets": {
       "get": {
