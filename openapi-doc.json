@@ -1099,7 +1099,6 @@
           }
         ]
       }
-    }
     },
     "/{baseSiteId}/ccpconfigurator/{configId}": {
       "get": {
@@ -1873,6 +1872,7 @@
           }
         ]
       }
+    }
     },
     "/{baseSiteId}/cities/{cityId}/districts": {
       "get": {
